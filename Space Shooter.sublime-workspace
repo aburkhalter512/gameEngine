@@ -1,0 +1,2006 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"gameE",
+				"gameEvents"
+			],
+			[
+				"onR",
+				"onRenderStart"
+			],
+			[
+				"star",
+				"start_msTimer"
+			],
+			[
+				"tim",
+				"timespec"
+			],
+			[
+				"tv",
+				"tv_nsec"
+			],
+			[
+				"game",
+				"gameObjectsCount"
+			],
+			[
+				"fra",
+				"frameCount"
+			],
+			[
+				"ren",
+				"renderInfo"
+			],
+			[
+				"onRe",
+				"onRenderStart"
+			],
+			[
+				"gameObje",
+				"gameObjectQueue"
+			],
+			[
+				"to",
+				"totalElements"
+			],
+			[
+				"bu",
+				"bucket"
+			],
+			[
+				"gam",
+				"gameObjectQueue"
+			],
+			[
+				"fre",
+				"free_hashtable"
+			],
+			[
+				"size",
+				"size_t"
+			],
+			[
+				"re",
+				"render"
+			],
+			[
+				"imag",
+				"imageUniform"
+			],
+			[
+				"tex",
+				"textureId"
+			],
+			[
+				"uin",
+				"uint32_t"
+			],
+			[
+				"comp",
+				"comparator_ptr"
+			],
+			[
+				"file",
+				"fileName"
+			],
+			[
+				"mvp",
+				"mvpUniform"
+			],
+			[
+				"SDL",
+				"SDL_QUIT"
+			],
+			[
+				"out",
+				"outColor"
+			],
+			[
+				"matr",
+				"matrix33f"
+			],
+			[
+				"col",
+				"colorUniform"
+			],
+			[
+				"project",
+				"projectionUniform"
+			],
+			[
+				"view",
+				"viewUniform"
+			],
+			[
+				"to_v",
+				"to_vec3f"
+			],
+			[
+				"to_",
+				"to_matrix33f"
+			],
+			[
+				"mod",
+				"modelUniform"
+			],
+			[
+				"shad",
+				"shaderId"
+			],
+			[
+				"verte",
+				"vertexShader"
+			],
+			[
+				"quad",
+				"quadVertexArray"
+			],
+			[
+				"qu",
+				"quadVertexBuffer"
+			],
+			[
+				"old",
+				"oldCapacity"
+			],
+			[
+				"hasher_",
+				"hasher_uint64_t"
+			],
+			[
+				"un",
+				"uint64_t"
+			],
+			[
+				"DATA",
+				"DATASTRUCTURE_TEST_FILES"
+			],
+			[
+				"buil",
+				"buildTest"
+			],
+			[
+				"has",
+				"hasher_ptr"
+			],
+			[
+				"F",
+				"free_hashtable"
+			],
+			[
+				"gameOj",
+				"gameObjects"
+			],
+			[
+				"SR",
+				"SRC_FILES"
+			],
+			[
+				"ENG",
+				"ENGINE_FILES"
+			],
+			[
+				"all",
+				"allGameObjects"
+			],
+			[
+				"coll",
+				"collisionRegionIt"
+			],
+			[
+				"gameO",
+				"gameObject"
+			],
+			[
+				"gameOb",
+				"gameObjects"
+			],
+			[
+				"gameObj",
+				"gameObject"
+			],
+			[
+				"ha",
+				"hasher_vec2i"
+			],
+			[
+				"max",
+				"maxLoadFactor"
+			],
+			[
+				"_",
+				"_getHashIndex_hashtable"
+			],
+			[
+				"siz",
+				"size_t"
+			],
+			[
+				"bucke",
+				"bucketNode"
+			],
+			[
+				"ma",
+				"maxLoadFactor"
+			],
+			[
+				"hash",
+				"hashtable"
+			],
+			[
+				"buc",
+				"bucketNode"
+			],
+			[
+				"rem",
+				"remainingBuckets"
+			],
+			[
+				"b",
+				"biggerGameObjectPool"
+			],
+			[
+				"gameObject",
+				"gameObjectsSize"
+			],
+			[
+				"actu",
+				"actualProjectedPoint1"
+			],
+			[
+				"act",
+				"actualProjectedPoint1"
+			],
+			[
+				"mat",
+				"matrix31f"
+			],
+			[
+				"poly",
+				"polygons"
+			],
+			[
+				"ver",
+				"vertices"
+			],
+			[
+				"to_ve",
+				"to_vec3f"
+			],
+			[
+				"tra",
+				"transformMatrix"
+			],
+			[
+				"cro",
+				"cross33x33_matrix33f"
+			],
+			[
+				"matrix",
+				"matrix13f"
+			],
+			[
+				"matri",
+				"matrix33f"
+			],
+			[
+				"tran",
+				"transformedPolygon"
+			],
+			[
+				"trans",
+				"transMatrix"
+			],
+			[
+				"to_ma",
+				"to_matrix33f"
+			],
+			[
+				"rot",
+				"rotMatrix"
+			],
+			[
+				"sca",
+				"scaleMatrix"
+			],
+			[
+				"sin",
+				"sinAngle"
+			],
+			[
+				"cos",
+				"cosAngle"
+			],
+			[
+				"projection",
+				"projectionDistanceSqrd"
+			],
+			[
+				"pro",
+				"projectionResult"
+			],
+			[
+				"_p",
+				"_project_point"
+			],
+			[
+				"_pro",
+				"_project_polygon"
+			],
+			[
+				"c2P",
+				"c2Poly"
+			],
+			[
+				"c2Po",
+				"c2Position"
+			],
+			[
+				"LINEARITY_C",
+				"LINEARITY_COUNTER_CLOCKWISE"
+			],
+			[
+				"LIN",
+				"LINEARITY_COUNTER_CLOCKWISE"
+			],
+			[
+				"dia",
+				"diagonalLinearity"
+			],
+			[
+				"opp",
+				"oppositeIndex"
+			],
+			[
+				"new",
+				"newOppositeVertex"
+			],
+			[
+				"base",
+				"baseVertex"
+			],
+			[
+				"diagona",
+				"diagonalLinearity"
+			],
+			[
+				"LINE",
+				"LINEARITY"
+			],
+			[
+				"op",
+				"oppositeIndex"
+			],
+			[
+				"dig",
+				"diagonalLinearity"
+			],
+			[
+				"diag",
+				"diagonalLinearity"
+			],
+			[
+				"prin",
+				"print_vertexDiagonals"
+			],
+			[
+				"cur",
+				"currentDiagonal"
+			],
+			[
+				"curr",
+				"currentIndex"
+			],
+			[
+				"curren",
+				"currentIndex"
+			],
+			[
+				"exp",
+				"expectedPolygon"
+			],
+			[
+				"dec",
+				"decompose_polygon_quadReflex"
+			],
+			[
+				"vertexDia",
+				"vertexDiagonal"
+			],
+			[
+				"rsu",
+				"resultMsg"
+			],
+			[
+				"actual",
+				"actualCount"
+			],
+			[
+				"verify",
+				"verifyPolygons"
+			],
+			[
+				"FI",
+				"FAIL_TEST"
+			],
+			[
+				"expecte",
+				"expectedCount"
+			],
+			[
+				"vertexDi",
+				"vertexDiagonal"
+			],
+			[
+				"pa",
+				"PASS_TEST"
+			],
+			[
+				"of",
+				"offset"
+			],
+			[
+				"ve",
+				"vec2f"
+			],
+			[
+				"res",
+				"resultMsg"
+			],
+			[
+				"vertex",
+				"vertexCount"
+			],
+			[
+				"vertexD",
+				"vertexDiagonal"
+			],
+			[
+				"conv",
+				"convexPolygons"
+			],
+			[
+				"free",
+				"free_polygon"
+			],
+			[
+				"_ger",
+				"_generateConvexPolygons_vertexDiagonals"
+			],
+			[
+				"pol",
+				"polyPool"
+			],
+			[
+				"diagonal",
+				"diagonals"
+			],
+			[
+				"create",
+				"create_polygon"
+			],
+			[
+				"diagon",
+				"diagonals"
+			],
+			[
+				"_g",
+				"_generatConvexPolygon_vertexDiagonals"
+			],
+			[
+				"nex",
+				"nextDiagonal"
+			],
+			[
+				"curre",
+				"currentDiagonal"
+			],
+			[
+				"ess",
+				"essentialDiagonalCount"
+			],
+			[
+				"acc",
+				"accumulatorIndex"
+			],
+			[
+				"o",
+				"opposite"
+			],
+			[
+				"_rem",
+				"_removeInessentialDiagonal_vertexDiagonal"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 3090,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main.c",
+			"settings":
+			{
+				"buffer_size": 2269,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/engine/gameEnvironment.h",
+			"settings":
+			{
+				"buffer_size": 2133,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/engine/gameEnvironment.c",
+			"settings":
+			{
+				"buffer_size": 6181,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/engine/render.h",
+			"settings":
+			{
+				"buffer_size": 379,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/engine/render.c",
+			"settings":
+			{
+				"buffer_size": 5208,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/engine/gameObject.c",
+			"settings":
+			{
+				"buffer_size": 1558,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Makefile/Make.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"Packages/Makefile/Make.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 307.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"the",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"cob",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"color",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"lin",
+				"SublimeLinter: Next Error"
+			],
+			[
+				"li",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"bla",
+				"Git: Blame"
+			],
+			[
+				"lint",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"blam",
+				"Git: Blame"
+			],
+			[
+				"jsh",
+				"JSHint"
+			],
+			[
+				"html",
+				"HTMLPrettify: Set Plugin Options"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"upd",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"git",
+				"Git: Blame"
+			],
+			[
+				"Set Plu",
+				"HTMLPrettify: Set Plugin Options"
+			],
+			[
+				"js",
+				"JSHint"
+			],
+			[
+				"bl",
+				"Git: Blame"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"git:b",
+				"Git: Blame"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"prv",
+				"PackageResourceViewer: Extract Package"
+			],
+			[
+				"Package Control: Ins",
+				"Package Control: Install Package"
+			],
+			[
+				"p",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"ls",
+			"sftp",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/adamb/Projects/Space Shooter",
+		"/Users/adamb/Projects/Space Shooter/src",
+		"/Users/adamb/Projects/Space Shooter/src/engine",
+		"/Users/adamb/Projects/Space Shooter/src/util"
+	],
+	"file_history":
+	[
+		"/Users/adamb/Projects/Space Shooter/src/engine/gameObject.c",
+		"/Users/adamb/Projects/Space Shooter/include/engine/gameObject.h",
+		"/Users/adamb/Projects/Space Shooter/src/engine/texture.c",
+		"/Users/adamb/Projects/Space Shooter/src/engine/render.c",
+		"/Users/adamb/Projects/Space Shooter/src/util/msTimer.c",
+		"/Users/adamb/Projects/Space Shooter/include/util/msTimer.h",
+		"/Users/adamb/Projects/Space Shooter/include/engine/render.h",
+		"/Users/adamb/Projects/Space Shooter/include/engine/gameEnvironment.h",
+		"/Users/adamb/Projects/Space Shooter/include/datastructures/hashtable.h",
+		"/Users/adamb/Projects/Space Shooter/src/datastructures/hashtable.c",
+		"/Users/adamb/Projects/Space Shooter/src/engine/gameEnvironment.c",
+		"/Users/adamb/Projects/Space Shooter/include/engine/texture.h",
+		"/Users/adamb/Projects/Space Shooter/shaders/triangles.vert",
+		"/usr/local/include/libpng16/png.h",
+		"/Users/adamb/Projects/Space Shooter/shaders/triangles.frag",
+		"/Users/adamb/Projects/Space Shooter/src/util/loadShaders.c",
+		"/Users/adamb/Projects/Space Shooter/Makefile",
+		"/Users/adamb/Projects/Space Shooter/src/main.c",
+		"/usr/local/include/jpeglib.h",
+		"/Users/adamb/Projects/Space Shooter/include/engine/math/matrix.h",
+		"/Users/adamb/Projects/Space Shooter/include/engine/math/transform.h",
+		"/Users/adamb/Projects/Space Shooter/include/util/loadShaders.h",
+		"/Users/adamb/Projects/Space Shooter/src/engine/math/matrix.c",
+		"/Users/adamb/Projects/Space Shooter/src/engine/math/transform.c",
+		"/Users/adamb/Projects/Space Shooter/src/main.unit.c",
+		"/Users/adamb/Projects/Space Shooter/src/datastructures/unit/hashtable.unit.c",
+		"/Users/adamb/Projects/Space Shooter/include/datastructures/unit/hashtable.unit.h",
+		"/Users/adamb/Projects/Space Shooter/include/engine/unit/math/polygon.unit.h",
+		"/Users/adamb/Projects/Space Shooter/include/engine/collision.h",
+		"/Users/adamb/Projects/Space Shooter/include/engine/math/vec.h",
+		"/Users/adamb/Projects/Space Shooter/src/engine/collision.c",
+		"/Users/adamb/Projects/Space Shooter/include/engine/util.h",
+		"/Users/adamb/Projects/Space Shooter/src/engine/math/vec.c",
+		"/Users/adamb/Projects/Space Shooter/src/engine/unit/math/vec.unit.c",
+		"/Users/adamb/Projects/Space Shooter/src/engine/math/polygon.c",
+		"/Users/adamb/Projects/Space Shooter/include/engine/unit/collision.unit.h",
+		"/Users/adamb/Projects/Space Shooter/src/engine/unit/collision.unit.c",
+		"/Users/adamb/Projects/Space Shooter/src/engine/unit/math/transform.unit.c",
+		"/Users/adamb/Projects/Space Shooter/include/engine/unit/math/transform.unit.h",
+		"/Users/adamb/Projects/Space Shooter/include/engine/math/polygon.h",
+		"/Users/adamb/Projects/Space Shooter/src/engine/unit/math/polygon.unit.c",
+		"/Users/adamb/Projects/Space Shooter/include/engine/unit/math/vec.unit.h",
+		"/Users/adamb/Projects/Space Shooter/include/util/unit.h",
+		"/Users/adamb/Projects/Space Shooter/src/engine/util.c",
+		"/Users/adamb/Projects/Space Shooter/src/util/unit.c",
+		"/Users/adamb/Projects/Space Shooter/src/engine/math/float.c",
+		"/Users/adamb/Projects/Space Shooter/include/engine/math/float.h",
+		"/Users/adamb/Projects/Space Shooter/src/util/string.c",
+		"/Users/adamb/Projects/Space Shooter/include/util/string.h",
+		"/Users/adamb/Projects/Space Shooter/include/engine/unit/math.unit.h",
+		"/Users/adamb/Projects/Space Shooter/src/engine/unit/math/float.unit.c",
+		"/Users/adamb/Projects/Space Shooter/include/engine/unit/math/float.unit.h",
+		"/Users/adamb/Projects/Space Shooter/src/engine/unit/math.unit.c",
+		"/Users/adamb/Projects/Space Shooter/include/engine/math.h",
+		"/Users/adamb/Projects/Space Shooter/src/engine/math.c",
+		"/Users/adamb/Projects/Space Shooter/include/engine/unit/polygon.unit.h",
+		"/Users/adamb/Projects/Space Shooter/include/engine/engine.h",
+		"/Users/adamb/Projects/Space Shooter/src/dataStructures/hashTable.c",
+		"/Users/adamb/Projects/Space Shooter/src/dataStructures/list.c",
+		"/Users/adamb/Projects/Space Shooter/src/dataStructures/array.c",
+		"/Users/adamb/Projects/Space Shooter/include/dataStructures/hashTable.h",
+		"/Users/adamb/Projects/Space Shooter/include/dataStructures/list.h",
+		"/Users/adamb/Projects/Space Shooter/include/dataStructures/array.h",
+		"/Users/adamb/Projects/Space Shooter/include/dataStructures/algorithm.h",
+		"/usr/include/stdio.h",
+		"/Users/adamb/Projects/Space Shooter/bin/unitTest.out",
+		"/Users/adamb/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/adamb/Projects/Space Shooter/include/engine/algorithm.h",
+		"/Users/adamb/Projects/Space Shooter/src/engine/algorithm.c",
+		"/Users/adamb/Projects/Space Shooter/src/util/algorithm.c",
+		"/Users/adamb/Projects/Space Shooter/include/util/algorithm.h",
+		"/Users/adamb/Projects/Space Shooter/include/engine.h",
+		"/Users/adamb/Projects/gameWithAnEpicName/shaders/triangles.frag",
+		"/Users/adamb/Projects/gameWithAnEpicName/shaders/triangles.vert",
+		"/usr/local/include/SDL2/SDL_opengl.h",
+		"/Users/adamb/Projects/gameWithAnEpicName/include/util/loadShaders.h",
+		"/Users/adamb/Projects/gameWithAnEpicName/src/util/glUtil.c",
+		"/Users/adamb/Projects/gameWithAnEpicName/include/util/glUtil.h",
+		"/usr/local/include/SDL2/SDL_video.h",
+		"/usr/local/include/SDL2/SDL.h",
+		"/Users/adamb/Projects/gameWithAnEpicName/include/SDL2/SDL_video.h",
+		"/Users/adamb/Projects/gameWithAnEpicName/src/util/loadShaders.c",
+		"/Users/adamb/Projects/gameWithAnEpicName/include/freeGLUT/freeglut_std.h",
+		"/Users/adamb/Projects/gameWithAnEpicName/src/loadShaders.c",
+		"/Users/adamb/Projects/gameWithAnEpicName/.gitignore",
+		"/Users/adamb/Projects/gameWithAnEpicName.sublime-project",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/verifySearchResults.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/testActionBarButtons.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/pocketMoveFile.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/testOnlineImport.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/lib/testlib.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/server/source/testServer.js",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/BVT-Replication-PSD.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/BVT-Replication-T.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/BVT-Replication-Cloud.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/testReturnToTopLevel.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/testViewMenu.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/BVT-TPO-MediaFolder-Desktop.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/executions/automated_daily_bvt.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/navigateToFolder.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/lib/util.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/navigateAndSelect.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/E2E-DavidV-Demo.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/navigateUsingPathNodes.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/lib/uilib.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/lib/synclib.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/lightboxMoveFolderOnly.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/cleanCache.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/Delete-Database-iOS.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/Delete-Database-iOS2.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/Delete-Database-iOS3.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/deleteDatabase.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/BVT-ThumbAndPreviewGeneration-Desktop.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/BVT-Import-Move.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/xml/billg_generateThumbPreview_Alaska2002.xml",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/E2E-BillG-Demo.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/BVT-Import-Copy-SDCard-Mac.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/BVT-Replication-Move-Desktop-to-USB.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/import_SD.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/BVT-Protection.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/BVT-Replication-Android-to-Desktop.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/BVT-Replication-TPO-Desktop-Desktop.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/replicate.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/lib/filelist.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/BVT-Replication-Mac-to-PC-OnDemandRepication.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/lua/importTestData.lua",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/BVT-Direct-Import.json",
+		"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/xml/psd_replicate_masterdevice.xml"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 179.0,
+		"where_history":
+		[
+			"",
+			"/Users/adamb/Desktop/Mylio/master/Test/automation/testCases/xml",
+			"",
+			"/Users/adamb/Desktop/Mylio/master/Test/automation/server/source",
+			"",
+			"\"sizeMB\":\"",
+			"",
+			"<current file>",
+			"",
+			"/Users/adamb/Desktop/Mylio/master/Test/testAutomation/testCases",
+			"/Users/adamb/Desktop/Mylio/master/Test/testAutomation/lua",
+			"<current file>",
+			"/Users/adamb/Desktop/Mylio/master/Test/testAutomation/executions,/Users/adamb/Desktop/Mylio/master/Test/testAutomation/lua,/Users/adamb/Desktop/Mylio/master/Test/testAutomation/server,/Users/adamb/Desktop/Mylio/master/Test/testAutomation/web",
+			"<current file>",
+			"/Users/adamb/Desktop/Mylio/master/Test/testAutomation/lua",
+			"/Users/adamb/Desktop/Mylio/master/Test/testAutomation/testCases",
+			"testCases",
+			"lua",
+			"<open folders>",
+			"<current file>",
+			"",
+			"<open folders>",
+			"",
+			"<open folders>",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"_setTexture_render",
+			"0.25",
+			"-0.25",
+			"0.25",
+			"loadPng_texture",
+			"png_image_finish_read",
+			"png_image",
+			"0.5",
+			"ROW_",
+			"const ",
+			"[ROW_2]",
+			"[ROW_1]",
+			"[ROW_0]",
+			"[2]",
+			"[1]",
+			"[0]",
+			"[Z][Z]",
+			"[Z][Y]",
+			"[Z][X]",
+			"[Y][Z]",
+			"[Y][Y]",
+			"[Y][X]",
+			"[X][Z]",
+			"[X][Y]",
+			"[X][X]",
+			"_project_point",
+			"d4",
+			"d3",
+			"alloc",
+			"_triangulate_polygon",
+			"_create_referenceVertices",
+			"calloc",
+			"polygonLink",
+			"_addDiagonal_vertexDiagonal",
+			"endpoint",
+			"_addDiagonal_vertexDiagonal",
+			"_init_vertexDiagonal",
+			"PROTOTYPE_TEST",
+			".vertices =",
+			"vertexDiagonals",
+			"area_polygon",
+			"distanceSqrd_vec2f",
+			"_isDiagonal_polygon",
+			"vertexDiagonals",
+			"_addDiagonal_vertexDiagonal",
+			"_init_vertexDiagonal",
+			"strcpy",
+			"_isDiagonal_polygon",
+			"linearity_vec2f",
+			"earVertices",
+			"_isDiagonal_polygon",
+			"referenceVertex",
+			"_isDiagonal_polygon",
+			"vertexDiagonals* _triangulate_polygon(polygon* poly, vertexDiagonal** diagonalPool)",
+			"referenceVertex* _create_referenceVertices(polygon* poly)",
+			"getPosition_transform",
+			"DEFINE_TEST",
+			"_TEST_SYMBOL_PREFIX_MAIN",
+			"areaTriangle2",
+			"area2Triangle",
+			"_markInessentialDiagonal_vertexDiagonal",
+			"array",
+			"_array",
+			"fswap",
+			"vec2fswap",
+			"    \");",
+			"__printflike",
+			"intersect_vec2f",
+			"OFFSET_PTR",
+			"_engine_getBoundingRadius",
+			"distance",
+			"radiusSqrd_vec2f",
+			"radius_vec2f",
+			"transform_setPosition",
+			"transform_getPosition",
+			"copy_polygon",
+			"engine_setPosition",
+			"engine_getPosition",
+			", \"\"",
+			"div_vec2f",
+			"sub_vec2f",
+			"neg_vec2f",
+			"add_vec2f",
+			"neg_vec2f",
+			"translate(",
+			"distanceSqrd(",
+			"intersect(",
+			"intersect",
+			"hypotenuse",
+			"perpendicular_f",
+			"perpendicular_vec2f",
+			"slope_vec2f",
+			"midpoint_vec2f",
+			"midpoint",
+			"max_vec2f",
+			"min_vec2f",
+			"toVec2f",
+			"translate",
+			"getAxisPoints",
+			"perpendicular",
+			"basePoints",
+			"float",
+			"(gl\\w+)",
+			"GL_VERTEX_ARRAY",
+			"OpenGL",
+			"SDL_SetVideoMode",
+			"GLFloat",
+			"getStageMediaByName",
+			"function getStage",
+			"getStage",
+			"$LOOSEMEDIA",
+			"pocket_moveFile.xml",
+			"pocketMoveFile.lua",
+			"navigateToMediaToPath",
+			"verifyEditBoxText",
+			"_getStageContainers",
+			"getStageFolderBy",
+			"navigateFoldersUsingPathNodes",
+			"_getStageContainers",
+			"CAROUSELS",
+			"openCarouselById",
+			"selectIt",
+			"abort",
+			"startTime",
+			"abort",
+			"runSelec",
+			"variantOptions",
+			"isTestCaseValid"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"1.0",
+			"0.0",
+			"0.5",
+			"_loadPng_texture",
+			"0.25",
+			"",
+			".rows[ROW_2]",
+			".rows[ROW_1]",
+			".rows[ROW_0]",
+			"[ROW_2]",
+			"[ROW_1]",
+			"[ROW_0]",
+			"[2].z",
+			"[2].y",
+			"[2].x",
+			"[1].z",
+			"[1].y",
+			"[1].x",
+			"[0].z",
+			"[0].y",
+			"[0].x",
+			"d8",
+			"d4",
+			"RUN_TEST",
+			"PROTOTYPE_TEST",
+			"IMPLEMENT_TEST",
+			"hashTable",
+			"_hashTable",
+			"setPosition_transform",
+			"getPosition_transform",
+			"transform_setPosition",
+			"transform_getPosition",
+			"",
+			"translate_polygon(",
+			"distanceSqrd_vec2f(",
+			"intersect_vec2f(",
+			"radius_vec2f",
+			"midpoint_vec2f",
+			"to_vec2f",
+			"axisPoints",
+			"int",
+			"(APIENTRY* $1)",
+			"GLfloat",
+			"Any-2",
+			"Any-1",
+			"Any-2",
+			"Any-1",
+			"Any-2",
+			"Any",
+			"uilib.setSelectItemsRetry({ $1 })",
+			"_trimMachineName",
+			"testlib.findChildControlOptional",
+			"testlib.findControlOptional",
+			"uilib.navigateFoldersUsingPathNodes",
+			"uilib.navigateUsingPathNodesNoWait",
+			"getStageFolderBy(\"name\", ",
+			"doublePress",
+			"schemaGenerator.",
+			"schemaGenerator",
+			"$1 =",
+			"}",
+			"{",
+			"$1 =",
+			"\"dataPath\":\"SmokeTest\"",
+			"bvtPhotos_photoslibrary",
+			"acceptDelta",
+			"\\\"",
+			"\\\" ",
+			"$1$3 = enum.$2$3, ",
+			"$1$2",
+			"$1$2 = enum.$2,",
+			"$1$2 = enum.$2",
+			"$1$2",
+			"$1 = enum.$1,",
+			"$1: \"\",",
+			"$1",
+			"true",
+			"\"$1\": -1,",
+			"\"$1\",",
+			"devices.DEFAULT_EXTERNAL_DRIVE_FORMAT_MAC",
+			"devices.DEFAULT_EXTERNAL_DRIVE_FORMAT_WIN",
+			"devices.DEFAULT_EXTERNAL_DRIVE_READONLY",
+			"devices.DEFAULT_EXTERNAL_DRIVE_SIZE_MB",
+			"devices.DEFAULT_EXTERNAL_DRIVE_DRIVE_LETTER",
+			"devices.DEFAULT_EXTERNAL_DRIVE_VOLUME_NAME",
+			" ",
+			"Desktop",
+			"device",
+			"setDeviceSyncPolicy",
+			"originals",
+			"previews",
+			"thumbs",
+			"$ROR/Mylio Pictures/core",
+			"devices",
+			"constants.selection_All",
+			"constants.selection_Multiple",
+			"constants.selection_Single",
+			"constants.selection_None",
+			"constants.DEFAULT_PASSWORD",
+			"constants.DEFAULT_EMAIL",
+			"constants.cloudHost",
+			"constants.testPicturesDir",
+			"constants.clientTestDataDir",
+			"constants.clientTestDir",
+			"constants.myloRootFolder",
+			"constants.OriginalsButtonId",
+			"constants.PreviewsButtonId",
+			"constants.ThumbsButonId",
+			"constants.NoneButtonId",
+			"constants.MYTPO_Custom",
+			"constants.MYTPO_Original",
+			"constants.MYTPO_Preview",
+			"constants.MYTPO_Thumbnail",
+			"constants.MYTPO_None",
+			"constants.FilterIntention_Custome",
+			"constants.FilterIntention_All",
+			"constants.FilterIntention_None",
+			"constants.Needed",
+			"constants.NotNeeded",
+			"constants.NotSet",
+			"constants.xmpOrientation_W",
+			"constants.xmpOrientation_S",
+			"constants.xmpOrientation_E",
+			"constants.xmpOrientation_N",
+			"constants.exportOption_Print",
+			"constants.exportOption_Export",
+			"constants.exportOption_Email",
+			"constants.exportPicker_MetadataValues"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3090,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1919,
+								1919
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 100.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/main.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2269,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1436,
+								1436
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 392.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "include/engine/gameEnvironment.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2133,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								377,
+								377
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/engine/gameEnvironment.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6181,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4374,
+								4374
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1858.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "include/engine/render.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 379,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								376,
+								362
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/engine/render.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5208,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3993,
+								4012
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1450.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/engine/gameObject.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1558,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 329.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 158.0
+	},
+	"pinned_build_system": "Packages/Makefile/Make.sublime-build",
+	"project": "Space Shooter.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"game",
+				"src/engine/gameObject.c"
+			],
+			[
+				"ren",
+				"src/engine/render.c"
+			],
+			[
+				"re",
+				"include/engine/render.h"
+			],
+			[
+				"ms",
+				"src/util/msTimer.c"
+			],
+			[
+				"tex",
+				"src/engine/texture.c"
+			],
+			[
+				"ga",
+				"src/engine/gameEnvironment.c"
+			],
+			[
+				"gam",
+				"include/engine/gameObject.h"
+			],
+			[
+				"has",
+				"src/datastructures/hashtable.c"
+			],
+			[
+				"te",
+				"src/engine/texture.c"
+			],
+			[
+				"gma",
+				"include/engine/gameEnvironment.h"
+			],
+			[
+				"ha",
+				"include/datastructures/hashtable.h"
+			],
+			[
+				"main",
+				"src/main.c"
+			],
+			[
+				"mak",
+				"Makefile"
+			],
+			[
+				"ver",
+				"shaders/triangles.vert"
+			],
+			[
+				"fra",
+				"shaders/triangles.frag"
+			],
+			[
+				"frag",
+				"shaders/triangles.frag"
+			],
+			[
+				"matr",
+				"include/engine/math/matrix.h"
+			],
+			[
+				"tra",
+				"include/engine/math/transform.h"
+			],
+			[
+				"mai",
+				"src/main.c"
+			],
+			[
+				"loa",
+				"src/util/loadShaders.c"
+			],
+			[
+				"lo",
+				"src/util/loadShaders.c"
+			],
+			[
+				"tran",
+				"include/engine/math/transform.h"
+			],
+			[
+				"ma",
+				"src/main.unit.c"
+			],
+			[
+				"hash",
+				"include/datastructures/unit/hashtable.unit.h"
+			],
+			[
+				"poly",
+				"include/engine/unit/math/polygon.unit.h"
+			],
+			[
+				"coll",
+				"include/engine/collision.h"
+			],
+			[
+				"ve",
+				"include/engine/math/vec.h"
+			],
+			[
+				"vec",
+				"include/engine/math/vec.h"
+			],
+			[
+				"uti",
+				"include/engine/util.h"
+			],
+			[
+				"vec.",
+				"src/engine/unit/math/vec.unit.c"
+			],
+			[
+				"pol",
+				"include/engine/unit/math/polygon.unit.h"
+			],
+			[
+				"coo",
+				"include/engine/unit/collision.unit.h"
+			],
+			[
+				"matri",
+				"src/engine/math/matrix.c"
+			],
+			[
+				"trans",
+				"include/engine/unit/math/transform.unit.h"
+			],
+			[
+				"collis",
+				"include/engine/unit/collision.unit.h"
+			],
+			[
+				"make",
+				"Makefile"
+			],
+			[
+				"p",
+				"src/engine/unit/math/polygon.unit.c"
+			],
+			[
+				"ply",
+				"include/engine/math/polygon.h"
+			],
+			[
+				"col",
+				"include/engine/collision.h"
+			],
+			[
+				"un",
+				"include/util/unit.h"
+			],
+			[
+				"uni",
+				"src/util/unit.c"
+			],
+			[
+				"fl",
+				"src/engine/math/float.c"
+			],
+			[
+				"float",
+				"include/engine/math/float.h"
+			],
+			[
+				"polyg",
+				"include/engine/unit/math/polygon.unit.h"
+			],
+			[
+				"oly",
+				"include/engine/math/polygon.h"
+			],
+			[
+				"stri",
+				"src/util/string.c"
+			],
+			[
+				"polygon",
+				"src/engine/math/polygon.c"
+			],
+			[
+				"co",
+				"src/engine/collision.c"
+			],
+			[
+				"mat",
+				"include/engine/unit/math.unit.h"
+			],
+			[
+				"math",
+				"include/engine/unit/math.unit.h"
+			],
+			[
+				"po",
+				"src/engine/math/polygon.c"
+			],
+			[
+				"flo",
+				"src/engine/math/float.c"
+			],
+			[
+				"colli",
+				"include/engine/collision.h"
+			],
+			[
+				"util",
+				"include/engine/util.h"
+			],
+			[
+				"math.un",
+				"include/engine/unit/math.unit.h"
+			],
+			[
+				"",
+				"src/engine/collision.c"
+			],
+			[
+				"uit",
+				"include/engine/util.h"
+			],
+			[
+				"math.c",
+				"src/engine/math.c"
+			],
+			[
+				"unit",
+				"src/util/unit.c"
+			],
+			[
+				"unit.c",
+				"src/util/unit.c"
+			],
+			[
+				"math.h",
+				"include/engine/math.h"
+			],
+			[
+				"main.",
+				"src/main.unit.c"
+			],
+			[
+				"al",
+				"src/engine/algorithm.c"
+			],
+			[
+				"load",
+				"include/util/loadShaders.h"
+			],
+			[
+				"testli",
+				"lua/lib/testlib.lua"
+			],
+			[
+				"uil",
+				"lua/lib/uilib.lua"
+			],
+			[
+				"teston",
+				"lua/testOnlineImport.lua"
+			],
+			[
+				"testa",
+				"lua/testActionBarButtons.lua"
+			],
+			[
+				"pock",
+				"lua/pocketMoveFile.lua"
+			],
+			[
+				"bvt-re",
+				"testCases/BVT-Replication-PSD.json"
+			],
+			[
+				"tes",
+				"server/source/testServer.js"
+			],
+			[
+				"testser",
+				"server/source/testServer.js"
+			],
+			[
+				"bvt-repli",
+				"testCases/BVT-Replication-Cloud.json"
+			],
+			[
+				"navi",
+				"lua/navigateAndSelect.lua"
+			],
+			[
+				"navigate",
+				"lua/navigateUsingPathNodes.lua"
+			],
+			[
+				"syncli",
+				"lua/lib/synclib.lua"
+			],
+			[
+				"dail",
+				"executions/automated_daily_bvt.json"
+			],
+			[
+				"bvt-tpo",
+				"testCases/BVT-TPO-MediaFolder-Desktop.json"
+			],
+			[
+				"delete",
+				"lua/deleteDatabase.lua"
+			],
+			[
+				"bvt-thum",
+				"testCases/BVT-ThumbAndPreviewGeneration-Desktop.json"
+			],
+			[
+				"import-mo",
+				"testCases/BVT-Import-Move.json"
+			],
+			[
+				"billg_g",
+				"testCases/xml/billg_generateThumbPreview_Alaska2002.xml"
+			],
+			[
+				"e2e",
+				"testCases/E2E-BillG-Demo.json"
+			],
+			[
+				"move-d",
+				"testCases/BVT-Replication-Move-Desktop-to-USB.json"
+			],
+			[
+				"import",
+				"lua/import_SD.lua"
+			],
+			[
+				"import-copy",
+				"testCases/BVT-Import-Copy-SDCard-Mac.json"
+			],
+			[
+				"bvt-rep",
+				"testCases/BVT-Replication-PSD.json"
+			],
+			[
+				"bvt-p",
+				"testCases/BVT-Protection.json"
+			],
+			[
+				"bvt-replication-",
+				"testCases/BVT-Replication-TPO-Desktop-Desktop.json"
+			],
+			[
+				"replication-a",
+				"testCases/BVT-Replication-Android-to-Desktop.json"
+			],
+			[
+				"repli",
+				"lua/replicate.lua"
+			],
+			[
+				"ondem",
+				"testCases/BVT-Replication-Mac-to-PC-OnDemandRepication.json"
+			],
+			[
+				"dire",
+				"testCases/BVT-Direct-Import.json"
+			],
+			[
+				"bvt-pro",
+				"testCases/BVT-Protection.json"
+			],
+			[
+				"rep",
+				"lua/replicate.lua"
+			],
+			[
+				"psd",
+				"testCases/xml/psd_replicate_masterdevice.xml"
+			],
+			[
+				"psd-i",
+				"testCases/BVT-PSD-ImportAndReplication-Desktop-to-Android.json"
+			],
+			[
+				"importte",
+				"lua/importTestData.lua"
+			],
+			[
+				"importmo",
+				"lua/importMobile.lua"
+			],
+			[
+				"importandreplication",
+				"testCases/BVT-PSD-ImportAndReplication-Android-to-Desktop.json"
+			],
+			[
+				"bvt-repl",
+				"testCases/BVT-Replication-Cloud.json"
+			],
+			[
+				"bvt-replication-t",
+				"testCases/BVT-Replication-T-Desktop-Mobile.json"
+			],
+			[
+				"folder",
+				"lua/folder_fs.lua"
+			],
+			[
+				"app-to",
+				"testCases/BVT-Filer-App-To-FS-Android.json"
+			],
+			[
+				"bvt-folder",
+				"testCases/BVT-Folder-Move.json"
+			],
+			[
+				"bvt-filer",
+				"testCases/BVT-Filer-App-To-FS-Mac.json"
+			],
+			[
+				"media",
+				"lua/media_fs.lua"
+			],
+			[
+				"bvt-fil",
+				"testCases/BVT-Filer-FS-To-App.json"
+			],
+			[
+				"daily",
+				"executions/automated_daily_bvt.json"
+			],
+			[
+				"tests",
+				"server/source/testServer.js"
+			],
+			[
+				"direc",
+				"testCases/BVT-Direct-Import.json"
+			],
+			[
+				"verifyme",
+				"lua/verifyMediaExistence.lua"
+			],
+			[
+				"waitfo",
+				"lua/waitForReplicationComplete.lua"
+			],
+			[
+				"setdev",
+				"lua/setDeviceSyncPolicy.lua"
+			],
+			[
+				"bvt-clou",
+				"testCases/BVT-Cloud-Mac-Cloud-Mac.json"
+			],
+			[
+				"bvt-cloud",
+				"testCases/BVT-Cloud-Desktop-Cloud-Android.json"
+			],
+			[
+				"syncfr",
+				"lua/syncFromCloud.lua"
+			],
+			[
+				"setfol",
+				"lua/setFolderSyncPolicy.lua"
+			],
+			[
+				"setd",
+				"lua/setDeviceSyncPolicy.lua"
+			],
+			[
+				"setde",
+				"lua/setDeviceLocation.lua"
+			],
+			[
+				"bvt-protec",
+				"testCases/BVT-Protection-Mac-PC-iOS-Cloud.json"
+			],
+			[
+				"uili",
+				"lua/lib/uilib.lua"
+			],
+			[
+				"ons",
+				"lua/onStartup.lua"
+			],
+			[
+				"test",
+				"lua/lib/testlib.lua"
+			],
+			[
+				"navig",
+				"lua/navigateAndSelect.lua"
+			],
+			[
+				"ipho",
+				"testCases/BVT-Import-iPhotoLibrary.json"
+			],
+			[
+				"validatef",
+				"lua/validateFilesystem.lua"
+			],
+			[
+				"verifyall",
+				"lua/verifyAllAttachedCatalogs.lua"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 189.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
