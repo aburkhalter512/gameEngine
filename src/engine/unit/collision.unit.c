@@ -24,7 +24,7 @@ IMPLEMENT_TEST(_detectCollision_polygon)
     triangles[1].vertices[1] = to_vec2f(1.0f, 0.0f);
     triangles[1].vertices[2] = to_vec2f(0.5f, 1.0f);
 
-    if (!_detectCollision_polygon(&triangles[0], &triangles[1]))
+    if (!_detectCollision_polygon(&triangles[0], &triangles[1]).isColliding)
     {
         FAIL_TEST("Identical polygons that overlap completely failed to collide.");
     }
@@ -41,7 +41,7 @@ IMPLEMENT_TEST(_detectCollision_polygon)
     triangles[1].vertices[1] = to_vec2f(1.0f, 0.0f);
     triangles[1].vertices[2] = to_vec2f(1.5f, 1.0f);
 
-    if (!_detectCollision_polygon(&triangles[0], &triangles[1]))
+    if (!_detectCollision_polygon(&triangles[0], &triangles[1]).isColliding)
     {
         FAIL_TEST("Identical polygons that have 1 side touching failed to collide.");
     }
@@ -58,7 +58,7 @@ IMPLEMENT_TEST(_detectCollision_polygon)
     triangles[1].vertices[1] = to_vec2f(1.75f, 0.5f);
     triangles[1].vertices[2] = to_vec2f(1.25f, 1.5f);
 
-    if (!_detectCollision_polygon(&triangles[0], &triangles[1]))
+    if (!_detectCollision_polygon(&triangles[0], &triangles[1]).isColliding)
     {
         FAIL_TEST("Identical polygons that have 1 vertex touching a side failed to collide.");
     }
@@ -75,7 +75,7 @@ IMPLEMENT_TEST(_detectCollision_polygon)
     triangles[1].vertices[1] = to_vec2f(1.5f, 0.5f);
     triangles[1].vertices[2] = to_vec2f(1.0f, 1.5f);
 
-    if (!_detectCollision_polygon(&triangles[0], &triangles[1]))
+    if (!_detectCollision_polygon(&triangles[0], &triangles[1]).isColliding)
     {
         FAIL_TEST("Identical polygons that partially intersect failed to collide.");
     }
@@ -92,7 +92,7 @@ IMPLEMENT_TEST(_detectCollision_polygon)
     triangles[1].vertices[1] = to_vec2f(1.5f, 1.1f);
     triangles[1].vertices[2] = to_vec2f(1.0f, 2.1f);
 
-    if (_detectCollision_polygon(&triangles[0], &triangles[1]))
+    if (_detectCollision_polygon(&triangles[0], &triangles[1]).isColliding)
     {
         FAIL_TEST("Identical polygons intersect some axes, but not all, but a collision was detected.");
     }
@@ -109,7 +109,7 @@ IMPLEMENT_TEST(_detectCollision_polygon)
     triangles[1].vertices[1] = to_vec2f(101.0f, 100.f);
     triangles[1].vertices[2] = to_vec2f(100.5f, 101.0f);
 
-    if (_detectCollision_polygon(&triangles[0], &triangles[1]))
+    if (_detectCollision_polygon(&triangles[0], &triangles[1]).isColliding)
     {
         FAIL_TEST("Identical polygons that are very distant are should not be colliding, but are detected as so.");
     }

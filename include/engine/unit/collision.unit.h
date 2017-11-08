@@ -15,7 +15,7 @@ struct _collider {
     float radius; // Used for bubble collision detection (cheap and fast to detect)
 };
 
-bool _detectCollision_polygon(polygon* base, polygon* target);
+collision _detectCollision_polygon(polygon* base, polygon* target);
 
 // Internal Unit Tests
 PROTOTYPE_TEST(_detectCollision_polygon);
