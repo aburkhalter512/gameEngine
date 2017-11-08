@@ -5,20 +5,25 @@ BIN_DIR=bin
 LIB_DIR=lib
 RES_DIR=resources
 
+# General Include Directoroes
 INC_DIRS=$(patsubst %, -I%, include /usr/local/include)
 
+# Game libraries and frameworks
 GAME_EXE_LIB_DIRS=$(patsubst %, -L%, /usr/local/lib bin)
 GAME_EXE_LIBS=$(patsubst %, -l%, iconv SDL2 c png GameEngine)
 GAME_EXE_FRAMEWORKS=$(patsubst %, -framework %, OpenGL Foundation AppKit CoreAudio AudioToolbox CoreVideo IOKit ForceFeedback Carbon)
 
+# Game engine libraries and frameworks
 GAME_ENGINE_LIB_DIRS=$(patsubst %, -L%, /usr/local/lib)
 GAME_ENGINE_LIBS=$(patsubst %, -l%,)
 GAME_ENGINE_FRAMEWORKS=$(patsubst %, -framework %, OpenGL)
 
+# Unit test libraries and frameworks
 TEST_LIB_DIRS=$(patsubst %, -L%, /usr/local/lib bin)
 TEST_LIBS=$(patsubst %, -l%, c png GameEngine)
 TEST_FRAMEWORKS=$(patsubst %, -framework %, OpenGL)
 
+# Binaries
 GAME_LIB=libGameEngine.a
 GAME_EXE=gameWithAnAwesomeName.out
 TEST_EXE=unitTest.out
@@ -60,42 +65,69 @@ ALL_OBJ_PATHS=$(patsubst %.c, $(OBJ_DIR)/%.o, $(ALL_FILES))
 
 # Compiler Variables
 CC=gcc
-BASE_CFLAGS=-c -Wall $(INC_DIRS) -g -O0 -mmacosx-version-min=10.9
+
+# Base flags
+BASE_CFLAGS=-c -Wall $(INC_DIRS) -mmacosx-version-min=10.9
 BASE_LFLAGS=
 
-GAME_ENGINE_LFLAGS=$(GAME_ENGINE_FRAMEWORKS) $(GAME_ENGINE_LIB_DIRS) $(GAME_ENGINE_LIBS)
-GAME_EXE_LFLAGS=$(GAME_EXE_FRAMEWORKS) $(GAME_EXE_LIB_DIRS) $(GAME_EXE_LIBS)
-TEST_LFLAGS=$(TEST_FRAMEWORKS) $(TEST_LIB_DIRS) $(TEST_LIBS)
+# Build variant flags
+DEBUG_CFLAGS=-g -O0
+DEBUG_LFLAGS=
 
-TEST_CFLAGS=-DUNIT_TEST
+TEST_CFLAGS=-g -O0 -DUNIT_TEST
+TEST_LFLAGS=
 
-.PHONY: all buildLib buildTest runTest buildGame clean
+RELEASE_CFLAGS=-O3
+RELEASE_LFLAGS=
 
-all: clean buildLib runTest buildGame
+.PHONY: all clean runTest build buildRelease buildDebug setTargetDebug setTargetTest setTargetRelease .buildLib .buildTest .buildGame
 
-runTest: clean buildLib buildTest
-	"$(BIN_DIR)/$(TEST_EXE)"
-
-buildLib: REAL_CFLAGS=$(BASE_CFLAGS)
-buildLib: REAL_LFLAGS=$(BASE_LFLAGS) $(GAME_ENGINE_LFLAGS)
-buildLib: $(LIB_SRC_PATHS) $(LIB_OBJ_PATHS)
-	libtool -static $(REAL_LFLAGS) $(LIB_OBJ_PATHS) -o "$(BIN_DIR)/$(GAME_LIB)"
-
-buildTest: REAL_CFLAGS=$(BASE_CFLAGS) $(TEST_CFLAGS)
-buildTest: REAL_LFLAGS=$(BASE_LFLAGS) $(TEST_LFLAGS)
-buildTest: $(TEST_SRC_PATHS) $(TEST_OBJ_PATHS)
-	$(CC) $(TEST_OBJ_PATHS) $(REAL_LFLAGS) -o "$(BIN_DIR)/$(TEST_EXE)"
-
-buildGame: buildLib
-buildGame: REAL_CFLAGS=$(BASE_CFLAGS)
-buildGame: REAL_LFLAGS=$(BASE_LFLAGS) $(GAME_EXE_LFLAGS)
-buildGame: $(GAME_SRC_PATHS) $(GAME_OBJ_PATHS)
-	$(CC) $(GAME_OBJ_PATHS) $(REAL_LFLAGS) -o "$(BIN_DIR)/$(GAME_EXE)"
-	cp -r "$(RES_DIR)" "$(BIN_DIR)/resources"
+# Main Recipes
+all: runTest
 
 clean:
 	rm -rf bin/*
 	rm -rf obj/*
+
+runTest: buildTest
+	"$(BIN_DIR)/$(TEST_EXE)"
+
+build: buildRelease
+
+# Build Variant Recipes
+buildRelease: BUILD_VARIANT_CFLAGS=$(BASE_CFLAGS) $(RELEASE_CFLAGS)
+buildRelease: BUILD_VARIANT_LFLAGS=$(BASE_LFLAGS) $(RELEASE_LFLAGS)
+buildRelease: clean .buildLib
+
+buildDebug: export BUILD_VARIANT_CFLAGS=$(BASE_CFLAGS) $(DEBUG_CFLAGS)
+buildDebug: export BUILD_VARIANT_LFLAGS=$(BASE_LFLAGS) $(DEBUG_LFLAGS)
+buildDebug: clean .buildLib
+
+buildTest: export BUILD_VARIANT_CFLAGS=$(BASE_CFLAGS) $(TEST_CFLAGS)
+buildTest: export BUILD_VARIANT_LFLAGS=$(BASE_LFLAGS) $(TEST_LFLAGS)
+buildTest: clean .buildLib .buildTest
+
+buildGame: BUILD_VARIANT_CFLAGS=$(BASE_CFLAGS) $(RELEASE_CFLAGS)
+buildGame: BUILD_VARIANT_LFLAGS=$(BASE_LFLAGS) $(RELEASE_LFLAGS)
+buildGame: clean .buildGame
+
+# Project Recipes
+.buildLib: export REAL_CFLAGS=$(BUILD_VARIANT_CFLAGS)
+.buildLib: export REAL_LFLAGS=$(BUILD_VARIANT_LFLAGS) $(GAME_ENGINE_FRAMEWORKS) $(GAME_ENGINE_LIB_DIRS) $(GAME_ENGINE_LIBS)
+.buildLib: $(LIB_SRC_PATHS) $(LIB_OBJ_PATHS)
+	libtool -static $(REAL_LFLAGS) $(LIB_OBJ_PATHS) -o "$(BIN_DIR)/$(GAME_LIB)"
+
+.buildTest: export REAL_CFLAGS=$(BUILD_VARIANT_CFLAGS)
+.buildTest: export REAL_LFLAGS=$(BUILD_VARIANT_LFLAGS) $(TEST_FRAMEWORKS) $(TEST_LIB_DIRS) $(TEST_LIBS)
+.buildTest: $(TEST_SRC_PATHS) $(TEST_OBJ_PATHS)
+	$(CC) $(TEST_OBJ_PATHS) $(REAL_LFLAGS) -o "$(BIN_DIR)/$(TEST_EXE)"
+
+.buildGame: .buildLib
+.buildGame: REAL_CFLAGS=$(BUILD_VARIANT_CFLAGS)
+.buildGame: REAL_LFLAGS=$(BUILD_VARIANT_LFLAGS) $(GAME_EXE_FRAMEWORKS) $(GAME_EXE_LIB_DIRS) $(GAME_EXE_LIBS)
+.buildGame: $(GAME_SRC_PATHS) $(GAME_OBJ_PATHS)
+	$(CC) $(GAME_OBJ_PATHS) $(REAL_LFLAGS) -o "$(BIN_DIR)/$(GAME_EXE)"
+	cp -r "$(RES_DIR)" "$(BIN_DIR)/resources"
 
 # Ensures that the obj file's directory exists
 # -AND-
