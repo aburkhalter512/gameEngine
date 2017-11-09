@@ -1,1 +1,56 @@
-_TODO_
+# Overview
+_NOTE_ Guaranteed to compile and link on OSX/macOS. This code will most likely compile on *nix-like environments, but will not link due to macOS framework dependencies
+
+This library is a 2d game engine, developed in C, that only requires OpenGL. 
+
+This game engine is designed to be bare bones, focusing more on simplicity than advanced feature sets.
+As such, most features require some custom code to actually be useful. A very basic example game is provided
+to both prove the game engine basically works and to show how to get the game engine running in C code.
+
+
+My primary motivations for creating this game engine are:
+* To practice C programming and learn its features and limitations, mostly compared to C++
+* To learn the basics of OpenGL and how to better integrate external APIs
+* To learn how to manage a relatively large code base in terms of compiling co-related projects.
+
+# Compilation
+Install XCode developer tools. A quick google search should reveal how to do this.
+
+## Game Engine
+In the terminal run
+```
+cd _game engine directory_
+make build
+```
+
+The library will be compiled to _game engine directory_/bin/libGameEngine.a
+
+## Unit Tests
+This make recipe compiles and runs the unit tests for the game engine library.
+Results are sent to stdout.
+
+In the terminal run
+```
+cd _game engine directory_
+make runTest
+```
+
+## Example Game
+To run the example game provided, perform the following steps:
+
+Install the following libraries:
+* libiconv
+* libSDL2 
+* libc
+* libpng
+
+In the terminal run
+```
+cd _game engine directory_
+make buildGame
+bin/gameWithAnAwesomeName.out
+```
+
+Controls are 
+* `A`: moves the paddle left
+* `D`: moves the paddle right
