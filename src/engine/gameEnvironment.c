@@ -23,6 +23,8 @@ struct _gameEnvironment
     hashtable* gameObjects;
     hashtable* gameObjectQueue; // The queue holds all new gameObjects until run_gameEnvironment() is called
     hashtable* gameObjectsToRemove;
+
+    void* userdata;
 };
 
 gameEnvironment* create_gameEnvironment(gameEvents ge, gameSettings gs)
@@ -290,4 +292,24 @@ void run_gameEnvironment(gameEnvironment* env)
     // printf("[TIMER]: allGameObjects render: %llu ms\n", diff_msTimer(&startTime));
 
     free(allGameObjects);
+}
+
+void setUserdata_gameEnvironment(gameEnvironment* env, void* userdata)
+{
+    if (!env)
+    {
+        return;
+    }
+
+    env->userdata = userdata;
+}
+
+void* getUserdata_gameEnvironment(gameEnvironment* env)
+{
+    if (!env)
+    {
+        return NULL;
+    }
+
+    return env->userdata;
 }

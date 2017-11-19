@@ -102,3 +102,24 @@ The following actions are performed, in this order:
 3. The world is rendered to the screen
 */
 void run_gameEnvironment(gameEnvironment* env);
+
+
+/*
+Sets the userdata for the gameEnvironment. Userdata is any arbitrary
+data set by the user, that is only used by the user. No library functions ever modify userdata.
+
+Arguments
+    gameEnvironment* g: The gameEnvironment to set the userdata on
+
+    void* userdata: The userdata to set for the game object
+*/
+void setUserdata_gameEnvironment(gameEnvironment* env, void* userdata);
+
+/*
+Returns the userdata associated with the gameEnvironment. Userdata is any arbitrary
+data set by the user, that is only used by the user. No library functions ever modify userdata.
+
+Arguments
+    gameEnvironment* g: The gameEnvironment to get the userdata from
+*/
+void* getUserdata_gameEnvironment(gameEnvironment* env);

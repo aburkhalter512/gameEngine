@@ -57,7 +57,7 @@ Arguments
 void* getUserdata_gameObject(gameObject* g);
 
 /*
-Sets the userdata for the gameObject. . Userdata is any arbitrary
+Sets the userdata for the gameObject. Userdata is any arbitrary
 data set by the user, that is only used by the user. No library functions ever modify userdata.
 
 Arguments
