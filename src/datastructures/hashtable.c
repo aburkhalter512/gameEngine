@@ -298,6 +298,47 @@ size_t getCount_hashtable(hashtable* table)
     return table->totalElements;
 }
 
+void* remove_hashtable(hashtable* table, void* key)
+{
+    if (!table || !key)
+    {
+        return NULL;
+    }
+
+    size_t index;
+    if (!_getHashIndex_hashtable(table, table->h(key), &index))
+    {
+        return NULL;
+    }
+
+    bucketNode* it = table->buckets[index].head;
+    if (!it)
+    {
+        return NULL;
+    }
+
+    if (table->c(key, it->key))
+    {
+        table->buckets[index].head = it->next;
+        void* result = it->value;
+        free(it);
+        return result;
+    }
+
+    for (bucketNode* prev = it->next; it; it = it->next)
+    {
+        if (table->c(key, it->key))
+        {
+            prev = it->next;
+            void* result = it->value;
+            free(it);
+            return result;
+        }
+    }
+
+    return NULL;
+}
+
 void clear_hashtable(hashtable* table)
 {
     if (!table)

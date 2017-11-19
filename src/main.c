@@ -16,7 +16,7 @@
 
 SDL_Window *win;
 
-void onUpdate(gameObject* g)
+void onUpdate(gameEnvironment* env, gameObject* g)
 {
     switch (getType_gameObject(g))
     {
@@ -29,7 +29,7 @@ void onUpdate(gameObject* g)
     }
 }
 
-void onCollision(gameObject* g1, gameObject* g2, collision* c)
+void onCollision(gameEnvironment* env, gameObject* g1, gameObject* g2, collision* c)
 {
     printf("onCollision: g1 type: %d, g2 type: %d\n", getType_gameObject(g1), getType_gameObject(g2));
     switch (getType_gameObject(g1))
@@ -46,9 +46,9 @@ void onCollision(gameObject* g1, gameObject* g2, collision* c)
     }
 }
 
-void onRenderStart() {}
+void onRenderStart(gameEnvironment* env) {}
 
-void onRenderEnd()
+void onRenderEnd(gameEnvironment* env)
 {
     SDL_GL_SwapWindow(win);
 }

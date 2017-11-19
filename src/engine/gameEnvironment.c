@@ -22,6 +22,7 @@ struct _gameEnvironment
 
     hashtable* gameObjects;
     hashtable* gameObjectQueue; // The queue holds all new gameObjects until run_gameEnvironment() is called
+    hashtable* gameObjectsToRemove;
 };
 
 gameEnvironment* create_gameEnvironment(gameEvents ge, gameSettings gs)
@@ -52,6 +53,13 @@ gameEnvironment* create_gameEnvironment(gameEvents ge, gameSettings gs)
         return NULL;
     }
 
+    env->gameObjectsToRemove = create_hashtable(DEFAULT_GAME_OBJECTS_CAPACITY, hasher_ptr, comparator_ptr);
+    if (!env->gameObjectsToRemove)
+    {
+        free_gameEnvironment(env);
+        return NULL;
+    }
+
     env->events = ge;
     env->settings = gs;
 
@@ -67,6 +75,7 @@ bool free_gameEnvironment(gameEnvironment* env)
 
     free_hashtable(env->gameObjects);
     free_hashtable(env->gameObjectQueue);
+    free_hashtable(env->gameObjectsToRemove);
     free(env);
 
     return true;
@@ -83,6 +92,65 @@ bool addGameObject_gameEnvironment(gameEnvironment* env, gameObject* g)
 }
 
 /*
+Adds all queued gameObjects to the main game object table.
+
+Arguments
+    gameEnvironment* env: TODO
+*/
+void _addGameObjects_gameEnvironment(gameEnvironment* env)
+{
+    // Get all queued gameObjects
+    size_t gameObjectQueueCount = getCount_hashtable(env->gameObjectQueue);
+    gameObject** gameObjectQueue = (gameObject**) getAll_hashtable(env->gameObjectQueue);
+
+    // Add the queued gameObjects to the main gameObject hashtable
+    for (size_t i = 0; i < gameObjectQueueCount; i++)
+    {
+        set_hashtable(env->gameObjects, gameObjectQueue[i], gameObjectQueue[i]);
+    }
+
+    free(gameObjectQueue);
+
+    // Clear the gameObject queue
+    clear_hashtable(env->gameObjectQueue);
+}
+
+/*
+Removes all queued gameObjects from the main game object table
+
+Arguments
+    gameEnvironment* env: TODO
+*/
+void _removeGameObjects_gameEnvironment(gameEnvironment* env)
+{
+    // Get all queued gameObjects
+    size_t gameObjectToRemoveCount = getCount_hashtable(env->gameObjectsToRemove);
+    gameObject** gameObjectToRemove = (gameObject**) getAll_hashtable(env->gameObjectsToRemove);
+
+    // Add the queued gameObjects to the main gameObject hashtable
+    for (size_t i = 0; i < gameObjectToRemoveCount; i++)
+    {
+        remove_hashtable(env->gameObjects, gameObjectToRemove[i]);
+    }
+
+    free(gameObjectToRemove);
+
+    clear_hashtable(env->gameObjectQueue);
+}
+
+gameObject* removeGameObject_gameEnvironment(gameEnvironment* env, gameObject* g)
+{
+    if (!env || !g)
+    {
+        return false;
+    }
+
+    set_hashtable(env->gameObjectsToRemove, g, g);
+
+    return g;
+}
+
+/*
 Calls onUpdate for each gameObject
 
 Arguments
@@ -92,13 +160,13 @@ Arguments
 
     size_t gameObjectsCount: The size of allGameObjects
 */
-void _updateGameObjects_env(void (*onUpdate)(gameObject*), gameObject** allGameObjects, size_t gameObjectsCount)
+void _updateGameObjects_env(onUpdateHandler onUpdate, gameEnvironment* env, gameObject** allGameObjects, size_t gameObjectsCount)
 {
     // printf("_updateGameObjects_env()\n");
 
     for (size_t i = 0; i < gameObjectsCount; i++)
     {
-        onUpdate(allGameObjects[i]);
+        onUpdate(env, allGameObjects[i]);
     }
 }
 
@@ -112,7 +180,7 @@ Arguments
 
     size_t gameObjectsCount: The size of allGameObjects
 */
-void _detectCollisions_env(void (*onCollision)(gameObject*, gameObject*, collision*), gameObject** allGameObjects, size_t gameObjectsCount)
+void _detectCollisions_env(onCollisionHandler onCollision, gameEnvironment* env, gameObject** allGameObjects, size_t gameObjectsCount)
 {
     // printf("_detectCollisions_env()\n");
 
@@ -151,7 +219,7 @@ void _detectCollisions_env(void (*onCollision)(gameObject*, gameObject*, collisi
             collision c = detectCollision_collider(c1, c2);
             if (c.isColliding)
             {
-                onCollision(g1, g2, &c);
+                onCollision(env, g1, g2, &c);
             }
         }
     }
@@ -165,12 +233,12 @@ Arguments
 
     size_t gameObjectsCount: The size of allGameObjects
 */
-void _render_env(void (*onRenderStart)(), void (*onRenderEnd)(), gameObject** allGameObjects, size_t gameObjectsCount, float aspect)
+void _render_env(onRenderStartHandler onRenderStart, onRenderEndHandler onRenderEnd, gameEnvironment* env, gameObject** allGameObjects, size_t gameObjectsCount, float aspect)
 {
     // printf("_render_env()\n");
 
     struct timespec startTime = start_msTimer();
-    onRenderStart();
+    onRenderStart(env);
     // printf("[TIMER]: render onRenderStart: %llu ms\n", diff_msTimer(&startTime));
 
     startTime = start_msTimer();
@@ -187,7 +255,7 @@ void _render_env(void (*onRenderStart)(), void (*onRenderEnd)(), gameObject** al
     // printf("[TIMER]: render allGameObjects: %llu ms\n", diff_msTimer(&startTime));
 
     startTime = start_msTimer();
-    onRenderEnd();
+    onRenderEnd(env);
     // printf("[TIMER]: render onRenderEnd: %llu ms\n", diff_msTimer(&startTime));
 }
 
@@ -200,35 +268,25 @@ void run_gameEnvironment(gameEnvironment* env)
 
     struct timespec startTime = start_msTimer();
 
-    // Get all queued gameObjects
-    size_t gameObjectQueueCount = getCount_hashtable(env->gameObjectQueue);
-    gameObject** gameObjectQueue = (gameObject**) getAll_hashtable(env->gameObjectQueue);
-
-    // Add the queued gameObjects to the main gameObject hashtable
-    for (size_t i = 0; i < gameObjectQueueCount; i++)
-    {
-        set_hashtable(env->gameObjects, gameObjectQueue[i], gameObjectQueue[i]);
-    }
-
-    free(gameObjectQueue);
-
-    // Clear the gameObject queue
-    clear_hashtable(env->gameObjectQueue);
+    // Add then remove gameObjects, so if a gameObject was added and removed in the 
+    // same tick, never process it
+    _addGameObjects_gameEnvironment(env);
+    _removeGameObjects_gameEnvironment(env);
 
     size_t gameObjectsCount = getCount_hashtable(env->gameObjects);
     gameObject** allGameObjects = (gameObject**) getAll_hashtable(env->gameObjects);
     // printf("[TIMER]: allGameObjects: %llu ms\n", diff_msTimer(&startTime));
 
     startTime = start_msTimer();
-    _updateGameObjects_env(env->events.onUpdate, allGameObjects, gameObjectsCount);
+    _updateGameObjects_env(env->events.onUpdate, env, allGameObjects, gameObjectsCount);
     // printf("[TIMER]: allGameObjects update: %llu ms\n", diff_msTimer(&startTime));
 
     startTime = start_msTimer();
-    _detectCollisions_env(env->events.onCollision, allGameObjects, gameObjectsCount);
+    _detectCollisions_env(env->events.onCollision, env, allGameObjects, gameObjectsCount);
     // printf("[TIMER]: allGameObjects detect collisions: %llu ms\n", diff_msTimer(&startTime));
 
     startTime = start_msTimer();
-    _render_env(env->events.onRenderStart, env->events.onRenderEnd, allGameObjects, gameObjectsCount, env->settings.aspect);
+    _render_env(env->events.onRenderStart, env->events.onRenderEnd, env, allGameObjects, gameObjectsCount, env->settings.aspect);
     // printf("[TIMER]: allGameObjects render: %llu ms\n", diff_msTimer(&startTime));
 
     free(allGameObjects);

@@ -120,6 +120,14 @@ Returns
 size_t getCount_hashtable(hashtable* table);
 
 /*
+Removes an element from the hashtable if it exists and returns it.
+
+Arguments
+
+*/
+void* remove_hashtable(hashtable* table, void* key);
+
+/*
 Clears all key/values from the hashtable.
 
 Arguments
