@@ -133,6 +133,7 @@ void _removeGameObjects_gameEnvironment(gameEnvironment* env)
     for (size_t i = 0; i < gameObjectToRemoveCount; i++)
     {
         remove_hashtable(env->gameObjects, gameObjectToRemove[i]);
+        env->events.onRemoveGameObject(env, gameObjectsToRemove[i]);
     }
 
     free(gameObjectToRemove);

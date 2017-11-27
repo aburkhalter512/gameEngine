@@ -10,6 +10,7 @@ typedef void (*onUpdateHandler)(gameEnvironment*, gameObject*);
 typedef void (*onCollisionHandler)(gameEnvironment*, gameObject*, gameObject*, collision* c);
 typedef void (*onRenderStartHandler)(gameEnvironment*);
 typedef void (*onRenderEndHandler)(gameEnvironment*);
+typedef void (*onRemoveGameObjectHandler)(gameEnvironment*, gameObject*);
 
 typedef struct _gameEvents
 {
@@ -23,6 +24,7 @@ typedef struct _gameEvents
     onCollisionHandler onCollision;
     onRenderStartHandler onRenderStart;
     onRenderEndHandler onRenderEnd;
+    onRemoveGameObjectHandler onRemoveGameObject
 } gameEvents;
 
 typedef struct _gameSettings
