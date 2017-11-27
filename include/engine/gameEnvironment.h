@@ -24,7 +24,7 @@ typedef struct _gameEvents
     onCollisionHandler onCollision;
     onRenderStartHandler onRenderStart;
     onRenderEndHandler onRenderEnd;
-    onRemoveGameObjectHandler onRemoveGameObject
+    onRemoveGameObjectHandler onRemoveGameObject;
 } gameEvents;
 
 typedef struct _gameSettings

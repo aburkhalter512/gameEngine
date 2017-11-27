@@ -30,7 +30,7 @@ struct _gameEnvironment
 gameEnvironment* create_gameEnvironment(gameEvents ge, gameSettings gs)
 {
     // All event handlers are required
-    if (!ge.onUpdate || !ge.onCollision || !ge.onRenderStart || !ge.onRenderEnd)
+    if (!ge.onUpdate || !ge.onCollision || !ge.onRenderStart || !ge.onRenderEnd || !ge.onRemoveGameObject)
     {
         return NULL;
     }
@@ -133,7 +133,7 @@ void _removeGameObjects_gameEnvironment(gameEnvironment* env)
     for (size_t i = 0; i < gameObjectToRemoveCount; i++)
     {
         remove_hashtable(env->gameObjects, gameObjectToRemove[i]);
-        env->events.onRemoveGameObject(env, gameObjectsToRemove[i]);
+        env->events.onRemoveGameObject(env, gameObjectToRemove[i]);
     }
 
     free(gameObjectToRemove);
@@ -157,15 +157,17 @@ gameObject* removeGameObject_gameEnvironment(gameEnvironment* env, gameObject* g
 Calls onUpdate for each gameObject
 
 Arguments
-    void (*onUpdate)(gameObject*): The update handler
+    gameEnvironment* env: TODO
 
     gameObject** allGameObjects: The game objects to update
 
     size_t gameObjectsCount: The size of allGameObjects
 */
-void _updateGameObjects_env(onUpdateHandler onUpdate, gameEnvironment* env, gameObject** allGameObjects, size_t gameObjectsCount)
+void _updateGameObjects_env(gameEnvironment* env, gameObject** allGameObjects, size_t gameObjectsCount)
 {
     // printf("_updateGameObjects_env()\n");
+
+    onUpdateHandler onUpdate = env->events.onUpdate;
 
     for (size_t i = 0; i < gameObjectsCount; i++)
     {
@@ -177,15 +179,17 @@ void _updateGameObjects_env(onUpdateHandler onUpdate, gameEnvironment* env, game
 Detects collisions between any two gameObjects and calls onCollision exactly once for each collision
 
 Arguments
-    void (*onCollision)(gameObject*, gameObject*): The collision handler
+    gameEnvironment* env: TODO
 
     gameObject** allGameObjects: The game objects to detect collisions with
 
     size_t gameObjectsCount: The size of allGameObjects
 */
-void _detectCollisions_env(onCollisionHandler onCollision, gameEnvironment* env, gameObject** allGameObjects, size_t gameObjectsCount)
+void _detectCollisions_env(gameEnvironment* env, gameObject** allGameObjects, size_t gameObjectsCount)
 {
     // printf("_detectCollisions_env()\n");
+
+    onCollisionHandler onCollision = env->events.onCollision;
 
     if (gameObjectsCount <= 1)
     {
@@ -232,13 +236,18 @@ void _detectCollisions_env(onCollisionHandler onCollision, gameEnvironment* env,
 Renders all gameObjects
 
 Arguments
+    gameEnvironment* env: TODO
+
     gameObject** allGameObjects: The game objects to render
 
     size_t gameObjectsCount: The size of allGameObjects
 */
-void _render_env(onRenderStartHandler onRenderStart, onRenderEndHandler onRenderEnd, gameEnvironment* env, gameObject** allGameObjects, size_t gameObjectsCount, float aspect)
+void _render_env(gameEnvironment* env, gameObject** allGameObjects, size_t gameObjectsCount, float aspect)
 {
     // printf("_render_env()\n");
+
+    onRenderStartHandler onRenderStart = env->events.onRenderStart;
+    onRenderEndHandler onRenderEnd = env->events.onRenderEnd;
 
     struct timespec startTime = start_msTimer();
     onRenderStart(env);
@@ -281,15 +290,15 @@ void run_gameEnvironment(gameEnvironment* env)
     // printf("[TIMER]: allGameObjects: %llu ms\n", diff_msTimer(&startTime));
 
     startTime = start_msTimer();
-    _updateGameObjects_env(env->events.onUpdate, env, allGameObjects, gameObjectsCount);
+    _updateGameObjects_env(env, allGameObjects, gameObjectsCount);
     // printf("[TIMER]: allGameObjects update: %llu ms\n", diff_msTimer(&startTime));
 
     startTime = start_msTimer();
-    _detectCollisions_env(env->events.onCollision, env, allGameObjects, gameObjectsCount);
+    _detectCollisions_env(env, allGameObjects, gameObjectsCount);
     // printf("[TIMER]: allGameObjects detect collisions: %llu ms\n", diff_msTimer(&startTime));
 
     startTime = start_msTimer();
-    _render_env(env->events.onRenderStart, env->events.onRenderEnd, env, allGameObjects, gameObjectsCount, env->settings.aspect);
+    _render_env(env, allGameObjects, gameObjectsCount, env->settings.aspect);
     // printf("[TIMER]: allGameObjects render: %llu ms\n", diff_msTimer(&startTime));
 
     free(allGameObjects);
