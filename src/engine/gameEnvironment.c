@@ -138,7 +138,7 @@ void _removeGameObjects_gameEnvironment(gameEnvironment* env)
 
     free(gameObjectToRemove);
 
-    clear_hashtable(env->gameObjectQueue);
+    clear_hashtable(env->gameObjectsToRemove);
 }
 
 gameObject* removeGameObject_gameEnvironment(gameEnvironment* env, gameObject* g)
