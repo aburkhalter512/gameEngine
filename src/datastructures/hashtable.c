@@ -322,6 +322,7 @@ void* remove_hashtable(hashtable* table, void* key)
         table->buckets[index].head = it->next;
         void* result = it->value;
         free(it);
+        table->totalElements--;
         return result;
     }
 
@@ -332,6 +333,7 @@ void* remove_hashtable(hashtable* table, void* key)
             prev = it->next;
             void* result = it->value;
             free(it);
+            table->totalElements--;
             return result;
         }
     }
