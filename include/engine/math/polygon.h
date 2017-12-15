@@ -88,3 +88,14 @@ Returns
     Returns false if any of the pointer arguments are NULL
 */
 bool project_polygon(polygon* poly, vec2f slope, vec2f* projectionResult, float* projectionDistanceSqrd);
+
+/*
+Returns true if the order of polygon vertices appears in clockwise order
+
+Arguments
+    polygon* poly: The polygon to determine clockwise-ness
+
+Returns
+    Returns true if the order of polygon vertices appears in clockwise order
+*/
+bool isClockwise_polygon(polygon* poly);

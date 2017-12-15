@@ -904,14 +904,34 @@ bool decompose_polygon(polygon* in, polygon** out, int* outCount)
 
     *out = NULL;
 
+    int vertexCount = in->vertexCount;
+    polygon counterClockWisePoly;
+    create_polygon(&counterClockWisePoly, vertexCount);
+
+    // All of the decomposition functions assume a ccw polygon, so reverse the order of points as necessary
+    if (isClockwise_polygon(in))
+    {
+        for (int i = 0; i < vertexCount; i++)
+        {
+            counterClockWisePoly.vertices[i] = in->vertices[vertexCount - 1 - i];
+        }
+    }
+    else
+    {
+        for (int i = 0; i < vertexCount; i++)
+        {
+            counterClockWisePoly.vertices[i] = in->vertices[i];
+        }
+    }
+
     vertexDiagonal* diagonalPool;
-    vertexDiagonal** diagonals = _triangulate_polygon(in, &diagonalPool);
+    vertexDiagonal** diagonals = _triangulate_polygon(&counterClockWisePoly, &diagonalPool);
     if (!diagonals)
     {
         return false;
     }
 
-    int essentialDiagonalCount = _removeInessentialDiagonals_vertexDiagonals(in, diagonals);
+    int essentialDiagonalCount = _removeInessentialDiagonals_vertexDiagonals(&counterClockWisePoly, diagonals);
     *outCount = essentialDiagonalCount + 1;
 
     // for (int i = 0; i < in->vertexCount; i++)
@@ -919,8 +939,9 @@ bool decompose_polygon(polygon* in, polygon** out, int* outCount)
     //     print_vertexDiagonals(diagonals[i]);
     // }
 
-    *out = _generateConvexPolygons_vertexDiagonals(in, diagonals, essentialDiagonalCount);
+    *out = _generateConvexPolygons_vertexDiagonals(&counterClockWisePoly, diagonals, essentialDiagonalCount);
 
+    free_polygon(&counterClockWisePoly);
     free(diagonalPool);
     free(diagonals);
 
@@ -983,4 +1004,22 @@ bool project_polygon(polygon* poly, vec2f slope, vec2f* projectionResult, float*
     }
 
     return true;
+}
+
+bool isClockwise_polygon(polygon* poly)
+{
+    float area = 0.0f;
+
+    vec2f baseVertex = poly->vertices[poly->vertexCount - 1];
+    vec2f nextVertex = poly->vertices[0];
+    area += (GET_X(nextVertex) - GET_X(baseVertex)) * (GET_Y(nextVertex) + GET_Y(baseVertex));
+
+    for (int i = 0; i < poly->vertexCount - 1; i++)
+    {
+        baseVertex = poly->vertices[i];
+        nextVertex = poly->vertices[i + 1];
+        area += (GET_X(nextVertex) - GET_X(baseVertex)) * (GET_Y(nextVertex) + GET_Y(baseVertex));
+    }
+
+    return area > 0.0f ? true : false; // backwards?
 }
