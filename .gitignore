@@ -3,3 +3,10 @@
 *.DS_Store
 bin/*
 obj/*
+
+*.lock
+*.swp
+
+# Added by cargo
+
+/target
