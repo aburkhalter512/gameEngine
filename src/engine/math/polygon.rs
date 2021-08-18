@@ -38,10 +38,8 @@ impl Polygon {
         });
 
         area > 0.0
-    }   
+    }
 }
-
-
 
 #[cfg(test)]
 mod tests {
@@ -64,7 +62,9 @@ mod tests {
     #[test]
     fn polygon_translate_empty() {
         let expected_vertices = vec![Vec2(1.0, 1.0), Vec2(2.0, 1.0), Vec2(1.0, 2.0)];
-        let polygon = Polygon::new(expected_vertices.clone()).unwrap().translate(Vec2(0.0, 0.0));
+        let polygon = Polygon::new(expected_vertices.clone())
+            .unwrap()
+            .translate(Vec2(0.0, 0.0));
 
         assert_eq!(polygon.vertices(), &expected_vertices)
     }
@@ -73,9 +73,14 @@ mod tests {
     fn polygon_translate() {
         let vertices = vec![Vec2(1.0, 1.0), Vec2(2.0, 1.0), Vec2(1.0, 2.0)];
         let expected_translation = Vec2(1.0, -1.0);
-        let polygon = Polygon::new(vertices.clone()).unwrap().translate(expected_translation);
+        let polygon = Polygon::new(vertices.clone())
+            .unwrap()
+            .translate(expected_translation);
 
-        let expected_vertices: Vec<_> = vertices.into_iter().map(|vertex| vertex + expected_translation).collect();
+        let expected_vertices: Vec<_> = vertices
+            .into_iter()
+            .map(|vertex| vertex + expected_translation)
+            .collect();
         assert_eq!(polygon.vertices(), &expected_vertices)
     }
 

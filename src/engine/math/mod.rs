@@ -1,2 +1,2 @@
-pub mod vec;
 pub mod polygon;
+pub mod vec;

@@ -10,4 +10,3 @@ impl<T: Add<Output = T>> Add for Vec2<T> {
         Vec2(self.0 + rhs.0, self.1 + rhs.1)
     }
 }
-
