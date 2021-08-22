@@ -1,4 +1,13 @@
 use crate::engine::math::polygon::Polygon;
+use crate::engine::math::vec::Vec2;
+
+struct Segment<'a>(pub &'a Vec2<f64>, pub &'a Vec2<f64>);
+
+impl<'a> Segment<'a> {
+    pub fn intersects(_other: &Segment<'a>) -> bool {
+        todo!()
+    }
+}
 
 struct ReferenceVertex {
     prev: usize,
@@ -41,11 +50,27 @@ impl<'a> ReferenceVertices<'a> {
     }
 
     fn is_diagonal(
-        vertices: &Vec<Vec2<f64>>,
-        ear_vertices: &Vec<ReferenceVertex>,
-        base_index: usize,
-        diagonal_index: usize,
+        _vertices: &Vec<Vec2<f64>>,
+        _ear_vertices: &Vec<ReferenceVertex>,
+        _base_index: usize,
+        _diagonal_index: usize,
     ) -> bool {
-        let base_vertex = vertices.
+        // let base_vertex = &vertices[base_index];
+        // let diagonal_vertex = &vertices[diagonal_index];
+
+        // let mut first_vertex = ear_vertices[base_index].next;
+        // while ear_vertices[first_vertex].next != base_index {
+        //     let next_vertex = ear_vertices[first_vertex].next;
+
+        //     if first_vertex == diagonal_index || next_vertex == diagonal_index {
+        //         continue;
+        //     }
+
+        //     todo!();
+
+        //     first_vertex = ear_vertices[first_vertex].next;
+        // }
+
+        todo!();
     }
 }
