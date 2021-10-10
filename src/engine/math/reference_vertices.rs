@@ -28,6 +28,7 @@ impl<'a> ReferenceVertices<'a> {
 
         let last_vertex_index = vertices.len() - 1;
 
+        // Wrap the first ear around the end of the vec
         ear_vertices.push(ReferenceVertex {
             prev: last_vertex_index,
             next: 1,
@@ -42,6 +43,7 @@ impl<'a> ReferenceVertices<'a> {
             });
         }
 
+        // Wrap the last ear around the front of the vec
         ear_vertices.push(ReferenceVertex {
             prev: last_vertex_index - 1,
             next: 0,
@@ -50,27 +52,25 @@ impl<'a> ReferenceVertices<'a> {
     }
 
     fn is_diagonal(
-        _vertices: &Vec<Vec2<f64>>,
-        _ear_vertices: &Vec<ReferenceVertex>,
-        _base_index: usize,
-        _diagonal_index: usize,
+        vertices: &Vec<Vec2<f64>>,
+        ear_vertices: &Vec<ReferenceVertex>,
+        base_index: usize,
+        diagonal_index: usize,
     ) -> bool {
-        // let base_vertex = &vertices[base_index];
-        // let diagonal_vertex = &vertices[diagonal_index];
+        let base_vertex = &vertices[base_index];
+        let diagonal_vertex = &vertices[diagonal_index];
 
-        // let mut first_vertex = ear_vertices[base_index].next;
-        // while ear_vertices[first_vertex].next != base_index {
-        //     let next_vertex = ear_vertices[first_vertex].next;
+        let mut first_vertex = ear_vertices[base_index].next;
+        while ear_vertices[first_vertex].next != base_index {
+            let next_vertex = ear_vertices[first_vertex].next;
 
-        //     if first_vertex == diagonal_index || next_vertex == diagonal_index {
-        //         continue;
-        //     }
+            if first_vertex == diagonal_index || next_vertex == diagonal_index {
+                continue;
+            }
 
-        //     todo!();
+            first_vertex = ear_vertices[first_vertex].next;
+        }
 
-        //     first_vertex = ear_vertices[first_vertex].next;
-        // }
-
-        todo!();
+        todo!()
     }
 }

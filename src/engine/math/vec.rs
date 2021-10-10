@@ -10,6 +10,24 @@ impl Approximately for f64 {
     }
 }
 
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
+enum Linearity {
+    Collinear,
+    Clockwise,
+    CounterClockwise,
+}
+
+impl Linearity {
+    pub fn linearity(v1: Vec2<f64>, v2: Vec2<f64>, v3: Vec2<f64>) -> Linearity {
+        let linearity = (v2.0 - v1.0) * (v3.1 - v1.1) - (v3.0 - v1.0) * (v2.1 - v1.1);
+        match linearity {
+            linearity if linearity.approximately(&0.0) => Linearity::Collinear,
+            linearity if linearity < 0.0 => Linearity::Clockwise,
+            _ => Linearity::CounterClockwise,
+        }
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Vec2<T>(pub T, pub T);
 
@@ -194,5 +212,46 @@ mod test {
         assert!(Vec2(0.0, 0.0).radius().approximately(&0.0));
         assert!(Vec2(1.0, 0.0).radius().approximately(&1.0));
         assert!(Vec2(0.7071, -0.7071).radius().approximately(&1.0));
+    }
+
+    #[test]
+    fn linearity() {
+        let points = (Vec2(0.25, 0.75), Vec2(0.5, 0.5), Vec2(-0.25, -0.25));
+
+        assert_eq!(
+            Linearity::Clockwise,
+            Linearity::linearity(points.0, points.1, points.2)
+        );
+
+        assert_eq!(
+            Linearity::CounterClockwise,
+            Linearity::linearity(points.2, points.1, points.0)
+        );
+
+        assert_eq!(
+            Linearity::Collinear,
+            Linearity::linearity(Vec2(-1.0, 0.0), Vec2(0.0, 0.0), Vec2(1.0, 0.0))
+        );
+    }
+
+    #[test]
+    fn linearity_same_point() {
+        let point = Vec2(1.0, 1.0);
+
+        assert_eq!(
+            Linearity::Collinear,
+            Linearity::linearity(point, point, point)
+        );
+    }
+
+    #[test]
+    fn linearity_approximately_collinear() {
+        let point = Vec2(1.0, 1.0);
+        let delta = Vec2(0.00001, 0.0);
+
+        assert_eq!(
+            Linearity::Collinear,
+            Linearity::linearity(point + delta, point, point - delta)
+        );
     }
 }
