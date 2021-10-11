@@ -11,7 +11,7 @@ impl Approximately for f64 {
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
-enum Linearity {
+pub enum Linearity {
     Collinear,
     Clockwise,
     CounterClockwise,
