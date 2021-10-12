@@ -40,10 +40,10 @@ impl Segment<f64> {
     }
 }
 
-struct ReferenceVertex {
-    prev: usize,
-    next: usize,
-    is_ear: bool,
+pub(crate) struct ReferenceVertex {
+    pub prev: usize,
+    pub next: usize,
+    pub is_ear: bool,
 }
 
 pub struct ReferenceVertices<'a> {
@@ -82,33 +82,68 @@ impl<'a> ReferenceVertices<'a> {
         })
     }
 
-    fn is_diagonal(
+    pub(crate) fn is_diagonal(
         vertices: &Vec<Vec2<f64>>,
         ear_vertices: &Vec<ReferenceVertex>,
         base_index: usize,
         diagonal_index: usize,
     ) -> bool {
-        let base_vertex = &vertices[base_index];
-        let diagonal_vertex = &vertices[diagonal_index];
+        let base_vertex = vertices[base_index];
+        let diagonal_vertex = vertices[diagonal_index];
+        let test_segment = Segment(base_vertex, diagonal_vertex);
 
+        // Verify the suspect diagonal does not intersect with any of the polygon's own segments
         let mut first_vertex = ear_vertices[base_index].next;
         while ear_vertices[first_vertex].next != base_index {
             let next_vertex = ear_vertices[first_vertex].next;
 
-            if first_vertex == diagonal_index || next_vertex == diagonal_index {
-                continue;
+            // Segments connected to other segments can never intersect (at least on the strict definition of intersecting)
+            if first_vertex != diagonal_index && next_vertex != diagonal_index {
+                let diagonal_segment = Segment(vertices[first_vertex], vertices[next_vertex]);
+
+                // If any one polygon segment and the diagonal intersect, then this diagonal is not valid
+                if test_segment.intersects(&diagonal_segment) {
+                    return false;
+                }
             }
 
             first_vertex = ear_vertices[first_vertex].next;
         }
 
-        todo!()
+        let prev_base_vertex = vertices[ear_vertices[base_index].prev];
+        let next_base_vertex = vertices[ear_vertices[base_index].next];
+
+        // Make sure the diagonal isn't external
+        if Linearity::linearity(prev_base_vertex, base_vertex, next_base_vertex)
+            == Linearity::CounterClockwise
+        {
+            // if the vertex is convex
+
+            // Verify the diagonal is located inside the INTERNAL convex vertex
+            // the idea here is to make sure the order of points appears in a counter clockwise fashion.
+            Linearity::linearity(prev_base_vertex, base_vertex, diagonal_vertex)
+                == Linearity::CounterClockwise
+                && Linearity::linearity(base_vertex, next_base_vertex, diagonal_vertex)
+                    == Linearity::CounterClockwise
+        } else {
+            // if the vertex is reflex
+
+            // Verify the diagonal is NOT located inside the EXTERNAL convex vertex
+            // the idea here is to make sure the order of points do not appear in a counter clockwise fashion.
+            !(Linearity::linearity(base_vertex, diagonal_vertex, next_base_vertex)
+                == Linearity::CounterClockwise
+                && Linearity::linearity(next_base_vertex, base_vertex, prev_base_vertex)
+                    == Linearity::CounterClockwise)
+        }
     }
 }
 
 #[cfg(test)]
 mod test {
-    use crate::engine::math::vec::Vec2;
+    use crate::engine::math::{
+        reference_vertices::{ReferenceVertex, ReferenceVertices},
+        vec::Vec2,
+    };
 
     use super::Segment;
 
@@ -154,5 +189,158 @@ mod test {
         assert!(!segment2.intersects(&segment1));
         assert!(!segment1.flip().intersects(&segment2));
         assert!(!segment2.flip().intersects(&segment1));
+    }
+
+    #[test]
+    fn reference_vertices_is_diagonal_all_convex() {
+        let vertices = vec![
+            Vec2(0.0, 0.0),
+            Vec2(1.0, 0.0),
+            Vec2(1.0, 1.0),
+            Vec2(0.0, 1.0),
+        ];
+
+        let ear_vertices = vec![
+            ReferenceVertex {
+                prev: 3,
+                next: 1,
+                is_ear: true,
+            },
+            ReferenceVertex {
+                prev: 0,
+                next: 2,
+                is_ear: true,
+            },
+            ReferenceVertex {
+                prev: 1,
+                next: 3,
+                is_ear: true,
+            },
+            ReferenceVertex {
+                prev: 2,
+                next: 0,
+                is_ear: true,
+            },
+        ];
+
+        let expected_results = vec![(0, 2, true), (1, 3, true)];
+
+        for (base, next, expect) in expected_results {
+            assert_eq!(
+                ReferenceVertices::is_diagonal(&vertices, &ear_vertices, base, next),
+                expect
+            );
+
+            assert_eq!(
+                ReferenceVertices::is_diagonal(&vertices, &ear_vertices, next, base),
+                expect
+            );
+        }
+    }
+
+    #[test]
+    fn reference_vertices_is_diagonal_single_reflex() {
+        let vertices = vec![
+            Vec2(0.0, 0.0),
+            Vec2(1.0, 1.0),
+            Vec2(2.0, 0.0),
+            Vec2(1.0, 2.0),
+        ];
+
+        let ear_vertices = vec![
+            ReferenceVertex {
+                prev: 3,
+                next: 1,
+                is_ear: true,
+            },
+            ReferenceVertex {
+                prev: 0,
+                next: 2,
+                is_ear: false,
+            },
+            ReferenceVertex {
+                prev: 1,
+                next: 3,
+                is_ear: true,
+            },
+            ReferenceVertex {
+                prev: 2,
+                next: 0,
+                is_ear: true,
+            },
+        ];
+
+        let expected_results = vec![(0, 2, false), (1, 3, true)];
+
+        for (base, next, expect) in expected_results {
+            assert_eq!(
+                ReferenceVertices::is_diagonal(&vertices, &ear_vertices, base, next),
+                expect
+            );
+
+            assert_eq!(
+                ReferenceVertices::is_diagonal(&vertices, &ear_vertices, next, base),
+                expect
+            );
+        }
+    }
+
+    #[test]
+    fn reference_vertices_is_diagonal_internal_intersection() {
+        let vertices = vec![
+            Vec2(0.0, 0.0),
+            Vec2(1.0, 1.0),
+            Vec2(2.0, 0.0),
+            Vec2(2.0, 1.0),
+            Vec2(1.0, 2.0),
+        ];
+
+        let ear_vertices = vec![
+            ReferenceVertex {
+                prev: 4,
+                next: 1,
+                is_ear: true,
+            },
+            ReferenceVertex {
+                prev: 0,
+                next: 2,
+                is_ear: false,
+            },
+            ReferenceVertex {
+                prev: 1,
+                next: 3,
+                is_ear: true,
+            },
+            ReferenceVertex {
+                prev: 2,
+                next: 4,
+                is_ear: true,
+            },
+            ReferenceVertex {
+                prev: 3,
+                next: 0,
+                is_ear: true,
+            },
+        ];
+
+        let expected_results = vec![
+            (0, 2, false),
+            (0, 3, false),
+            (1, 3, true),
+            (1, 4, true),
+            (2, 4, true),
+        ];
+
+        for (base, next, expect) in expected_results {
+            assert_eq!(
+                ReferenceVertices::is_diagonal(&vertices, &ear_vertices, base, next),
+                expect
+            );
+
+            assert_eq!(
+                ReferenceVertices::is_diagonal(&vertices, &ear_vertices, next, base),
+                expect
+            );
+        }
     }
 }
